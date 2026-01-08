@@ -1,4 +1,4 @@
-name: Publish Package
+name: Publish Contracts Package
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'backend/contracts/**'
-    workflow_dispatch:
 
 permissions:
   id-token: write
@@ -34,6 +33,6 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Generate TS Protobuf
-        run: yarn run gen
+        run: yarn run generate
 
       - run: npm publish

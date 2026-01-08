@@ -10,7 +10,7 @@
 		"generated"
 	],
 	"author": "tramalretard",
-	"license": "ISC",
+	"license": "ISC", 
 	"publishConfig": {
 		"access": "public"
 	},
