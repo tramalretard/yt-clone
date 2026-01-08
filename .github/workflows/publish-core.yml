@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'backend/core/**'
+    workflow_dispatch:
 
 permissions:
   id-token: write
