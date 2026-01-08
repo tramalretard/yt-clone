@@ -1,0 +1,22 @@
+{
+	"name": "@youtube-clone/contracts",
+	"version": "1.0.0",
+	"description": "Protobuf definitions and generated types",
+	"scripts": {
+		"generate": "protoc -I ./proto ./proto/*.proto --ts_proto_out=./generated --ts_proto_opt=nestJs=true,package=omit"
+	},
+	"files": [
+		"proto",
+		"generated"
+	],
+	"author": "tramalretard",
+	"license": "ISC",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@nestjs/microservices": "^11.1.11",
+		"rxjs": "^7.8.2",
+		"ts-proto": "^2.10.1"
+	}
+}
