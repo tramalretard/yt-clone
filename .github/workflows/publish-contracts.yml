@@ -22,6 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Protobuf
         run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
@@ -32,7 +35,4 @@ jobs:
       - name: Generate TS Protobuf
         run: yarn run gen
 
-        with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
       - run: npm publish
