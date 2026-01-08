@@ -1,0 +1,35 @@
+name: Publish Package
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/contracts/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./backend/contracts
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+        run: yarn install --frozen-lockfile
+        
+        run: yarn run gen
+
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm publish
