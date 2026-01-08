@@ -23,10 +23,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
 
+      - name: Install Protobuf
         run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
 
+      - name: Install Dependencies
         run: yarn install --frozen-lockfile
-        
+
+      - name: Generate TS Protobuf
         run: yarn run gen
 
         with:
